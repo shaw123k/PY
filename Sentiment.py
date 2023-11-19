@@ -184,7 +184,24 @@ def testBayes(sentencesTest, dataName, pWordPos, pWordNeg, pWord,pPos):
  
 # TODO for Step 2: Add some code here to calculate and print: (1) accuracy; (2) precision and recall for the positive class; 
 # (3) precision and recall for the negative class; (4) F1 score;
- 
+    
+
+    accuracy = correct / float(total) if total > 0 else 0
+    precision_pos = correct_pos / float(total_pos_pred) if total_pos_pred > 0 else 0
+    recall_pos = correct_pos / float(total_pos) if total_pos > 0 else 0
+    precision_neg = correct_neg / float(total_neg_pred) if total_neg_pred > 0 else 0
+    recall_neg = correct_neg / float(total_neg) if total_neg > 0 else 0
+
+    f1_score_pos = 2 * precision_pos * recall_pos / (precision_pos + recall_pos) if (precision_pos + recall_pos) > 0 else 0
+    f1_score_neg = 2 * precision_neg * recall_neg / (precision_neg + recall_neg) if (precision_neg + recall_neg) > 0 else 0
+
+    print("Accuracy:", accuracy)
+    print("Precision (Positive):", precision_pos)
+    print("Recall (Positive):", recall_pos)
+    print("F1-score (Positive):", f1_score_pos)
+    print("Precision (Negative):", precision_neg)
+    print("Recall (Negative):", recall_neg)
+    print("F1-score (Negative):", f1_score_neg) 
 
 
 
@@ -234,7 +251,23 @@ def testDictionary(sentencesTest, dataName, sentimentDictionary, threshold):
 # TODO for Step 5: Add some code here to calculate and print: (1) accuracy; (2) precision and recall for the positive class; 
 # (3) precision and recall for the negative class; (4) F1 score;
  
+    
+    accuracy = correct / float(total) if total > 0 else 0
+    precision_pos = correct_pos / float(total_pos_pred) if total_pos_pred > 0 else 0
+    recall_pos = correct_pos / float(total_pos) if total_pos > 0 else 0
+    precision_neg = correct_neg / float(total_neg_pred) if total_neg_pred > 0 else 0
+    recall_neg = correct_neg / float(total_neg) if total_neg > 0 else 0
 
+    f1_score_pos = 2 * precision_pos * recall_pos / (precision_pos + recall_pos) if (precision_pos + recall_pos) > 0 else 0
+    f1_score_neg = 2 * precision_neg * recall_neg / (precision_neg + recall_neg) if (precision_neg + recall_neg) > 0 else 0
+
+    print("Accuracy:", accuracy)
+    print("Precision (Positive):", precision_pos)
+    print("Recall (Positive):", recall_pos)
+    print("F1-score (Positive):", f1_score_pos)
+    print("Precision (Negative):", precision_neg)
+    print("Recall (Negative):", recall_neg)
+    print("F1-score (Negative):", f1_score_neg)
 
 
 #Print out n most useful predictors
